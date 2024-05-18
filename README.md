@@ -11,3 +11,6 @@ Our project allows users to practice tennis in VR and aims to improve the hand e
 |  Kavya Verma  |   7220411   |
 |Chelsea Stoner |   6451876   |
 
+<img width="1390" alt="190iers - Scene" src="https://github.com/jessicahsy/190ier/assets/32345724/6219cfc6-f7cb-4af5-8aa2-ee97db603f34">
+
+
