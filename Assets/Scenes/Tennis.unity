@@ -19408,8 +19408,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1073311562}
   m_SourcePrefab: {fileID: 100100000, guid: d32646a613259b74088b7f7b03f41b14, type: 3}
---- !u!1 &1542230510
-GameObject:
 --- !u!1 &1526073717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5635281340628511192, guid: bc708a5dd3cec4801953c2c5a8368af3,
