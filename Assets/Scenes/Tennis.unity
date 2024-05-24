@@ -7293,7 +7293,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 8557704231179289222, guid: 94722d2f12fff44dc9f81e18afb2f945,
+  m_ModelPrefab: {fileID: 6155391641003262500, guid: cd26f816dc3274e05bdcd4f2e79fe1ec,
     type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
@@ -28515,7 +28515,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 8557704231179289222, guid: 94722d2f12fff44dc9f81e18afb2f945,
+  m_ModelPrefab: {fileID: 2267404793836737100, guid: 8ed7c4661c5c246c3b215268ec9f5cc5,
     type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
@@ -30757,6 +30757,7 @@ SceneRoots:
   - {fileID: 1735264986}
   - {fileID: 874630526}
   - {fileID: 1466608841}
+  - {fileID: 1756135061}
   - {fileID: 1220190000}
   - {fileID: 1734600399}
   - {fileID: 1315219501}
@@ -30773,4 +30774,3 @@ SceneRoots:
   - {fileID: 566274659}
   - {fileID: 1563084625}
   - {fileID: 1734267160}
-  - {fileID: 1756135061}
