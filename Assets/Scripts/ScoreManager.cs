@@ -22,6 +22,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
+            GameText();
             // Player 1 wins the game
             Debug.Log("Player 1 wins the game!");
             ResetScores();
@@ -37,6 +38,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
+            GameText();
             // Player 2 wins the game
             Debug.Log("Player 2 wins the game!");
             ResetScores();
@@ -51,6 +53,7 @@ public class ScoreManager : MonoBehaviour
     private void GameText()
     {
         scoreText.text = "GAME";
+        //wait(3);
         
     }
 
