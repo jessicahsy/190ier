@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class BallCollision : MonoBehaviour
 {
     int bounce_num=0;
@@ -7,6 +9,31 @@ public class BallCollision : MonoBehaviour
     int last_bounce_court=0;
     bool hit=false;
 
+
+    private XRGrabInteractable grabInteractable;
+    private bool grabbed = false;
+    
+    public AudioSource source;
+    public AudioClip moveBackwards;
+
+    void Start() {
+        grabInteractable = GetComponent<XRGrabInteractable>();
+    }
+
+    void Update() {
+        if (grabInteractable.isSelected) { // User picks up the ball, then AI agent instructs them to move backwards
+            if (!grabbed) {
+                Debug.Log("Grabbed");
+                source.clip = moveBackwards;
+                source.Play();
+                grabbed = true;
+            }
+        } else {
+            if (grabbed) {
+                Debug.Log("Released");
+            }
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

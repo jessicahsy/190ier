@@ -8,9 +8,20 @@ public class ScoreManager : MonoBehaviour
     private int player2Score = 0;
     private readonly int[] points = { 0, 15, 30, 40 }; // Tennis point system
 
+    public AudioSource source;
+    public AudioClip serve;
+
     void Start()
     {
         UpdateScoreText();
+    }
+
+    void OnCollisionEnter(Collision collision)  {
+        if (collision.gameObject.CompareTag("behind-backline")) {
+            Debug.Log("Collision detected with tag: " + collision.gameObject.tag);
+            source.clip = serve;
+            source.Play();
+        }
     }
 
     public void AddPointToPlayer1()
