@@ -14,7 +14,7 @@ public class BallCollision : MonoBehaviour
     private bool grabbed = false;
     
     public AudioSource source;
-    public AudioClip moveBackwards;
+    public AudioClip moveBackwards, greatJob, ballHitsBeforeNet, ballHitsOutsideLine;
 
     void Start() {
         grabInteractable = GetComponent<XRGrabInteractable>();
@@ -49,6 +49,9 @@ public class BallCollision : MonoBehaviour
             if ((collision.gameObject.CompareTag("in2")) ||(collision.gameObject.CompareTag("in2"))){
                 bounce_num++;//bounce num in court
                 if (collision.gameObject.CompareTag("in2")){
+                    Debug.Log("ball inside court lines");
+                    source.clip = greatJob;
+                    source.Play();
                     last_bounce_court=2;
                 }else{
                     last_bounce_court=1;
@@ -58,17 +61,23 @@ public class BallCollision : MonoBehaviour
             {//out of bound
                 if (collision.gameObject.CompareTag("out1"))
                 {
+                    source.clip = ballHitsOutsideLine;
+                    source.Play();
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
                 }
                 else if (collision.gameObject.CompareTag("out2"))
                 {
+                    source.clip = ballHitsOutsideLine;
+                    source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
                 }
             }
             if (bounce_num>1){//assume first ball was in and not player hitting their own court
                 if (last_bounce_court==1){
+                    source.clip = ballHitsBeforeNet;
+                    source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
                 }else{
