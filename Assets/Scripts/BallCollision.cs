@@ -4,6 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BallCollision : MonoBehaviour
 {
     int bounce_num=0;
+    public float hitForce = 2f;
     
     public ScoreManager scoreManager;
     int last_bounce_court=0;
@@ -16,8 +17,11 @@ public class BallCollision : MonoBehaviour
     public AudioSource source;
     public AudioClip moveBackwards, greatJob, ballHitsBeforeNet, ballHitsOutsideLine;
 
+    private Rigidbody ballRigidbody;
+
     void Start() {
         grabInteractable = GetComponent<XRGrabInteractable>();
+        ballRigidbody = GetComponent<Rigidbody>();
     }
 
     void Update() {
@@ -44,9 +48,13 @@ public class BallCollision : MonoBehaviour
         // in1 for P2 hit P1 court first bounce in
         if (collision.gameObject.CompareTag("racket")){
             hit=true;
+            Vector3 hitDirection = collision.contacts[0].point - transform.position;
+            hitDirection = hitDirection.normalized;
+            ballRigidbody.AddForce(hitDirection * hitForce, ForceMode.Impulse);
+            Debug.Log("Ball hit with force: " + hitForce);
         }//
         if (hit){    
-            if ((collision.gameObject.CompareTag("in2")) ||(collision.gameObject.CompareTag("in2"))){
+            if ((collision.gameObject.CompareTag("in2")) ||(collision.gameObject.CompareTag("in1"))){
                 bounce_num++;//bounce num in court
                 if (collision.gameObject.CompareTag("in2")){
                     Debug.Log("ball inside court lines");
@@ -80,6 +88,7 @@ public class BallCollision : MonoBehaviour
                     source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
+      
                 }else{
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
