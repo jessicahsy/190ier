@@ -2145,11 +2145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 10
   scoreManager: {fileID: 1734600396}
-  source: {fileID: 1794957941}
-  moveBackwards: {fileID: 8300000, guid: 61aeba53655f64b7f9c656ddef8fd495, type: 3}
-  greatJob: {fileID: 8300000, guid: 7dbd82a55120d4982aec88b7224d87ba, type: 3}
-  ballHitsBeforeNet: {fileID: 8300000, guid: 09cf67e7812c04b7b8a2cacfbe1022fe, type: 3}
-  ballHitsOutsideLine: {fileID: 8300000, guid: f1048d42f03074619a0b57a400ff6bc4, type: 3}
 --- !u!135 &116830120
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3274,11 +3269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 10
   scoreManager: {fileID: 1734600396}
-  source: {fileID: 1794957941}
-  moveBackwards: {fileID: 8300000, guid: 61aeba53655f64b7f9c656ddef8fd495, type: 3}
-  greatJob: {fileID: 8300000, guid: 7dbd82a55120d4982aec88b7224d87ba, type: 3}
-  ballHitsBeforeNet: {fileID: 8300000, guid: 09cf67e7812c04b7b8a2cacfbe1022fe, type: 3}
-  ballHitsOutsideLine: {fileID: 8300000, guid: f1048d42f03074619a0b57a400ff6bc4, type: 3}
 --- !u!135 &163417488
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3602,11 +3592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 10
   scoreManager: {fileID: 1734600396}
-  source: {fileID: 1794957941}
-  moveBackwards: {fileID: 8300000, guid: 61aeba53655f64b7f9c656ddef8fd495, type: 3}
-  greatJob: {fileID: 8300000, guid: 7dbd82a55120d4982aec88b7224d87ba, type: 3}
-  ballHitsBeforeNet: {fileID: 8300000, guid: 09cf67e7812c04b7b8a2cacfbe1022fe, type: 3}
-  ballHitsOutsideLine: {fileID: 8300000, guid: f1048d42f03074619a0b57a400ff6bc4, type: 3}
 --- !u!135 &183785677
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16534,11 +16519,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 10
   scoreManager: {fileID: 1734600396}
-  source: {fileID: 1794957941}
-  moveBackwards: {fileID: 8300000, guid: 61aeba53655f64b7f9c656ddef8fd495, type: 3}
-  greatJob: {fileID: 8300000, guid: 7dbd82a55120d4982aec88b7224d87ba, type: 3}
-  ballHitsBeforeNet: {fileID: 8300000, guid: 09cf67e7812c04b7b8a2cacfbe1022fe, type: 3}
-  ballHitsOutsideLine: {fileID: 8300000, guid: f1048d42f03074619a0b57a400ff6bc4, type: 3}
 --- !u!114 &1073311571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16555,6 +16535,24 @@ MonoBehaviour:
   fx_floor: {fileID: 8300000, guid: 4469071d9ffe04738b4c4992bda32cf2, type: 3}
   fx_swing: {fileID: 8300000, guid: ac26011162cb54a1e8e5281a89bd5282, type: 3}
   speedThreshold: 5
+--- !u!114 &1073311576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073311558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06753d45537ba4ae68cea7a813629487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitForce: 2
+  source: {fileID: 1794957941}
+  moveBackwards: {fileID: 8300000, guid: 61aeba53655f64b7f9c656ddef8fd495, type: 3}
+  greatJob: {fileID: 8300000, guid: 7dbd82a55120d4982aec88b7224d87ba, type: 3}
+  ballHitsBeforeNet: {fileID: 8300000, guid: 09cf67e7812c04b7b8a2cacfbe1022fe, type: 3}
+  ballHitsOutsideLine: {fileID: 8300000, guid: f1048d42f03074619a0b57a400ff6bc4, type: 3}
 --- !u!1 &1075753514
 GameObject:
   m_ObjectHideFlags: 0
@@ -22335,6 +22333,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1073311571}
+    - targetCorrespondingSourceObject: {fileID: 666518165885707036, guid: d32646a613259b74088b7f7b03f41b14,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1073311576}
   m_SourcePrefab: {fileID: 100100000, guid: d32646a613259b74088b7f7b03f41b14, type: 3}
 --- !u!1 &1542230510
 GameObject:
@@ -22921,11 +22923,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitForce: 10
   scoreManager: {fileID: 1734600396}
-  source: {fileID: 1794957941}
-  moveBackwards: {fileID: 8300000, guid: 61aeba53655f64b7f9c656ddef8fd495, type: 3}
-  greatJob: {fileID: 8300000, guid: 7dbd82a55120d4982aec88b7224d87ba, type: 3}
-  ballHitsBeforeNet: {fileID: 8300000, guid: 09cf67e7812c04b7b8a2cacfbe1022fe, type: 3}
-  ballHitsOutsideLine: {fileID: 8300000, guid: f1048d42f03074619a0b57a400ff6bc4, type: 3}
 --- !u!135 &1575437593
 SphereCollider:
   m_ObjectHideFlags: 0

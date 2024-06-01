@@ -14,9 +14,6 @@ public class BallCollision : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     private bool grabbed = false;
     
-    public AudioSource source;
-    public AudioClip moveBackwards, greatJob, ballHitsBeforeNet, ballHitsOutsideLine;
-
     private Rigidbody ballRigidbody;
 
     void Start() {
@@ -25,18 +22,6 @@ public class BallCollision : MonoBehaviour
     }
 
     void Update() {
-        if (grabInteractable.isSelected) { // User picks up the ball, then AI agent instructs them to move backwards
-            if (!grabbed) {
-                Debug.Log("Grabbed");
-                source.clip = moveBackwards;
-                source.Play();
-                grabbed = true;
-            }
-        } else {
-            if (grabbed) {
-                Debug.Log("Released");
-            }
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,8 +43,6 @@ public class BallCollision : MonoBehaviour
                 bounce_num++;//bounce num in court
                 if (collision.gameObject.CompareTag("in2")){
                     Debug.Log("ball inside court lines");
-                    source.clip = greatJob;
-                    source.Play();
                     last_bounce_court=2;
                 }else{
                     last_bounce_court=1;
@@ -69,23 +52,17 @@ public class BallCollision : MonoBehaviour
             {//out of bound
                 if (collision.gameObject.CompareTag("out1"))
                 {
-                    source.clip = ballHitsOutsideLine;
-                    source.Play();
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
                 }
                 else if (collision.gameObject.CompareTag("out2"))
                 {
-                    source.clip = ballHitsOutsideLine;
-                    source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
                 }
             }
             if (bounce_num>1){//assume first ball was in and not player hitting their own court
                 if (last_bounce_court==1){
-                    source.clip = ballHitsBeforeNet;
-                    source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
       
