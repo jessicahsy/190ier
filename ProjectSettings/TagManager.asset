@@ -13,14 +13,16 @@ TagManager:
   - out1
   - out2
   - behind-backline
+  - TennisBall
+  - oppRacket
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TennisBallLayer
   - Water
   - UI
-  - 
+  - oppRacket
   - 
   - 
   - 
