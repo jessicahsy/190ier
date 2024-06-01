@@ -5,20 +5,12 @@ using UnityEngine;
 public class TrajectoryLine : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public int segmentCount = 20; // Number of segments in the line
-    public float segmentScale = 0.5f; // Distance between segments
     public Transform racketTrans;
-    public float speed = 2f; // Estimated speed for the trajectory calculation
     private int frameCounter = 0;
-
     private Racket racketObj;
-    // private racket = GameObject.Find("tennis_bat1");
-    // private bool isPreviewActive = false; // Changed default to false
-    // private bool isRacketHeld = false;
 
     private void Start()
     {
-        // racketTrans = racket.transform; // Replace "Racket" with the name of your racket object
         racketTrans = GameObject.Find("tennis_bat1").transform;
         racketObj = GameObject.Find("tennis_bat1").GetComponent<Racket>();
         lineRenderer = GetComponent<LineRenderer>();
@@ -62,27 +54,4 @@ public class TrajectoryLine : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPositions(segments);
     }
-
-    // public void HideTrajectory()
-    // {
-    //     isPreviewActive = false;
-    //     lineRenderer.positionCount = 0;
-    // }
-
-    // public void ShowTrajectory()
-    // {
-    //     if (isRacketHeld) // Only show trajectory if racket is held
-    //     {
-    //         isPreviewActive = true;
-    //     }
-    // }
-
-    // public void SetRacketHeld(bool held)
-    // {
-    //     isRacketHeld = held;
-    //     if (!held)
-    //     {
-    //         HideTrajectory(); // Hide trajectory if racket is released
-    //     }
-    // }
 }
