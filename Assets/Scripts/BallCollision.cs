@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BallCollision : MonoBehaviour
 {
     int bounce_num=0;
-    public float hitForce = 2f;
+    public float hitForce = 1f;
     private Vector3 initialPosition;
     
     public ScoreManager scoreManager;
