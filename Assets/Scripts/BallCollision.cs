@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -5,6 +6,7 @@ public class BallCollision : MonoBehaviour
 {
     int bounce_num=0;
     public float hitForce = 2f;
+    private Vector3 initialPosition;
     
     public ScoreManager scoreManager;
     int last_bounce_court=0;
@@ -22,6 +24,7 @@ public class BallCollision : MonoBehaviour
     void Start() {
         grabInteractable = GetComponent<XRGrabInteractable>();
         ballRigidbody = GetComponent<Rigidbody>();
+        initialPosition = transform.position;
     }
 
     void Update() {
@@ -73,6 +76,7 @@ public class BallCollision : MonoBehaviour
                     source.Play();
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
+                    StartCoroutine(Respawn());
                 }
                 else if (collision.gameObject.CompareTag("out2"))
                 {
@@ -80,6 +84,7 @@ public class BallCollision : MonoBehaviour
                     source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
+                    StartCoroutine(Respawn());
                 }
             }
             if (bounce_num>1){//assume first ball was in and not player hitting their own court
@@ -88,10 +93,11 @@ public class BallCollision : MonoBehaviour
                     source.Play();
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
-      
+                    StartCoroutine(Respawn());
                 }else{
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
+                    StartCoroutine(Respawn());
                 }
             }
         }
@@ -102,5 +108,13 @@ public class BallCollision : MonoBehaviour
         bounce_num = 0;
         hit=false;
         //sleep(3);
+    }
+    
+    public IEnumerator Respawn() {
+        yield return new WaitForSeconds(2);
+        transform.position = initialPosition;
+
+        ballRigidbody.velocity = Vector3.zero;
+        ballRigidbody.angularVelocity = Vector3.zero;
     }
 }
