@@ -5,37 +5,41 @@ using UnityEngine;
 public class AIAgent : MonoBehaviour
 {
     public AudioSource source;
-    public AudioClip[] audioClips;
+    // public AudioClip[] audioClips;
+    public AudioClip AIAgentAudioClip;
 
     private int currentClipIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (audioClips.Length > 0)
-        {
-            // Start playing the first audio clip
-            StartCoroutine(PlayAudioClipsSequentially());
-        }
+        source.clip = AIAgentAudioClip;
+        source.Play();
+
+        // if (audioClips.Length > 0)
+        // {
+        //     // Start playing the first audio clip
+        //     StartCoroutine(PlayAudioClipsSequentially());
+        // }
     }
 
-    IEnumerator PlayAudioClipsSequentially()
-    {
-        while (currentClipIndex < audioClips.Length)
-        {
-            source.clip = audioClips[currentClipIndex];
-            source.Play();
+    // IEnumerator PlayAudioClipsSequentially()
+    // {
+    //     while (currentClipIndex < audioClips.Length)
+    //     {
+    //         source.clip = audioClips[currentClipIndex];
+    //         source.Play();
 
-            // Wait until the current clip finishes playing
-            yield return new WaitForSeconds(source.clip.length);
+    //         // Wait until the current clip finishes playing
+    //         yield return new WaitForSeconds(source.clip.length);
 
-            currentClipIndex++;
-        }
-    }
+    //         currentClipIndex++;
+    //     }
+    // }
 
-    // Update is called once per frame
-    void Update()
-    {
+    // // Update is called once per frame
+    // void Update()
+    // {
         
-    }
+    // }
 }
