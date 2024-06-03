@@ -15,6 +15,6 @@ Our project allows users to practice tennis in VR and aims to improve the hand e
 
 
 ## Locomotion
-- Press A to press start on the menu screen.
+- Press the grip button to press start on the menu screen.
 - On Quest 3, walk to move around on the court
 - Press the grip button to pick up tennis racket and ball.
