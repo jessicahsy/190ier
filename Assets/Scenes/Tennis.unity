@@ -2364,6 +2364,7 @@ MonoBehaviour:
   fx_racket: {fileID: 8300000, guid: 8436c8cf5779f4fbda9ea5a4acee8d73, type: 3}
   fx_net: {fileID: 0}
   fx_serve: {fileID: 0}
+  fx_pickup: {fileID: 0}
   speedThreshold: 5
   racketRb: {fileID: 0}
   ballRb: {fileID: 0}
@@ -3528,6 +3529,7 @@ MonoBehaviour:
   fx_racket: {fileID: 8300000, guid: 8436c8cf5779f4fbda9ea5a4acee8d73, type: 3}
   fx_net: {fileID: 0}
   fx_serve: {fileID: 0}
+  fx_pickup: {fileID: 0}
   speedThreshold: 5
   racketRb: {fileID: 0}
   ballRb: {fileID: 0}
@@ -3891,6 +3893,7 @@ MonoBehaviour:
   fx_racket: {fileID: 8300000, guid: 8436c8cf5779f4fbda9ea5a4acee8d73, type: 3}
   fx_net: {fileID: 0}
   fx_serve: {fileID: 0}
+  fx_pickup: {fileID: 0}
   speedThreshold: 5
   racketRb: {fileID: 0}
   ballRb: {fileID: 0}
@@ -9012,7 +9015,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734600400}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -17375,6 +17378,7 @@ MonoBehaviour:
   fx_racket: {fileID: 8300000, guid: 4398caf6390344848ab978c6ea0d8797, type: 3}
   fx_net: {fileID: 8300000, guid: f5a49e35b465945b6abb6642288eb02e, type: 3}
   fx_serve: {fileID: 8300000, guid: 2cda12e4e9e0d4897bdafca7ab88bd95, type: 3}
+  fx_pickup: {fileID: 8300000, guid: 0d9ba9deac23f4ff199b989fe352e768, type: 3}
   speedThreshold: 1
   racketRb: {fileID: 1142977813}
   ballRb: {fileID: 1073311564}
@@ -24286,6 +24290,7 @@ MonoBehaviour:
   fx_racket: {fileID: 8300000, guid: 8436c8cf5779f4fbda9ea5a4acee8d73, type: 3}
   fx_net: {fileID: 0}
   fx_serve: {fileID: 0}
+  fx_pickup: {fileID: 0}
   speedThreshold: 5
   racketRb: {fileID: 0}
   ballRb: {fileID: 0}
@@ -26528,7 +26533,6 @@ GameObject:
   - component: {fileID: 1734600398}
   - component: {fileID: 1734600397}
   - component: {fileID: 1734600396}
-  - component: {fileID: 1734600400}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: racket
@@ -26610,20 +26614,6 @@ Transform:
   - {fileID: 620606673}
   m_Father: {fileID: 719651808}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1734600400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734600395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f73b29338f7545f7852367139b7a723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startCanvas: {fileID: 1588747833}
-  scoreboardCanvas: {fileID: 1734267156}
 --- !u!1 &1735264982
 GameObject:
   m_ObjectHideFlags: 0

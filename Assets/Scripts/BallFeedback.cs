@@ -6,14 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BallFeedback : MonoBehaviour
 {
     public AudioSource source;
-    public AudioClip fx_floor,fx_swing,fx_racket,fx_net,fx_serve;
+    public AudioClip fx_floor,fx_swing,fx_racket,fx_net,fx_serve,fx_pickup;
 
     public float speedThreshold = 5.0f;//plays sound only if speed reaches threshold
     private bool isBallReleased = false;
 
     public Rigidbody racketRb;
     public Rigidbody ballRb;
-    private XRGrabInteractable grabInteractable;
+    private XRGrabInteractable grabInteractable;//ball
     private float cooldownTime = 0.5f;
     private float nextPlayTime = 0f;
     private float yPositionThreshold = 0.0f;
@@ -30,6 +30,7 @@ public class BallFeedback : MonoBehaviour
         //ballRb = GetComponent<Rigidbody>();
         grabInteractable = GetComponent<XRGrabInteractable>();
         grabInteractable.selectExited.AddListener(OnRelease);
+        grabInteractable.selectEntered.AddListener(OnPickUp);
         
     }
 
@@ -104,6 +105,12 @@ public class BallFeedback : MonoBehaviour
         }
     }
 
+    //FX_PICKUP
+    private void OnPickUp(SelectEnterEventArgs args)
+    {
+        source.clip = fx_pickup;
+        source.Play();
+    }
     private void OnRelease(SelectExitEventArgs args)//play serve sound when ball released
     {
         isBallReleased = true;
