@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class ScoreManager : MonoBehaviour
     private readonly int[] points = { 0, 15, 30, 40 }; // Tennis point system
 
     public AudioSource source;
-    public AudioClip serve;
+    public AudioClip serve,fx_victory;//,fx_point;
+    public AudioClip fx_zero, fx_fifteen, fx_thirty, fx_forty;
 
     void Start()
     {
@@ -33,10 +35,9 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            GameText();
+            StartCoroutine(GameText());
             // Player 1 wins the game
             Debug.Log("Player 1 wins the game!");
-            ResetScores();
         }
     }
 
@@ -49,23 +50,57 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            GameText();
+            StartCoroutine(GameText());
             // Player 2 wins the game
             Debug.Log("Player 2 wins the game!");
-            ResetScores();
         }
     }
 
     private void UpdateScoreText()
     {
         scoreText.text = $"{points[player1Score]} - {points[player2Score]}";
+        if (player1Score > 0 || player2Score > 0){
+            StartCoroutine(PlayScoreSounds());
+        }
+        
+
+    }
+    private IEnumerator PlayScoreSounds()
+    {
+        PlayScoreSound(player1Score);
+        yield return new WaitForSeconds(source.clip.length);
+
+        PlayScoreSound(player2Score);
+        yield return new WaitForSeconds(source.clip.length);
+    }
+    private void PlayScoreSound(int score)
+    {
+        switch (score)
+        {
+            case 0:
+                source.clip = fx_zero;
+                break;
+            case 1:
+                source.clip = fx_fifteen;
+                break;
+            case 2:
+                source.clip = fx_thirty;
+                break;
+            case 3:
+                source.clip = fx_forty;
+                break;
+        }
+        source.Play();
     }
 
-    private void GameText()
+
+   private IEnumerator GameText()
     {
         scoreText.text = "GAME";
-        //wait(3);
-        
+        source.clip = fx_victory;
+        source.Play();
+        yield return new WaitForSeconds(5);
+        ResetScores();
     }
 
     private void ResetScores()

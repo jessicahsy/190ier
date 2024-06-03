@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class BallFeedback : MonoBehaviour
 {
     public AudioSource source;
-    public AudioClip fx_floor,fx_swing,fx_racket,fx_net;
+    public AudioClip fx_floor,fx_swing,fx_racket,fx_net,fx_serve;
 
     public float speedThreshold = 5.0f;//plays sound only if speed reaches threshold
     private bool isBallReleased = false;
 
     public Rigidbody racketRb;
-    private Rigidbody ballRb;
+    public Rigidbody ballRb;
+    private XRGrabInteractable grabInteractable;
     private float cooldownTime = 0.5f;
     private float nextPlayTime = 0f;
     private float yPositionThreshold = 0.0f;
@@ -25,6 +27,9 @@ public class BallFeedback : MonoBehaviour
     void Start()
     {
         //rb = GetComponent<Rigidbody>();
+        //ballRb = GetComponent<Rigidbody>();
+        grabInteractable = GetComponent<XRGrabInteractable>();
+        grabInteractable.selectExited.AddListener(OnRelease);
         
     }
 
@@ -41,6 +46,11 @@ public class BallFeedback : MonoBehaviour
         if (transform.position.y > yPositionThreshold)
         {
             inAir = true;
+        }
+        if (isBallReleased)// && ballRb.velocity.y > 0)
+        {
+            PlayServeSound();
+            isBallReleased = false;
         }
 
     }
@@ -73,13 +83,6 @@ public class BallFeedback : MonoBehaviour
 
         
     }
-    public void StopFxFloor()
-    {
-        if (source.clip == fx_floor && source.isPlaying)
-        {
-            source.Stop();
-        }
-    }
     
     void OnTriggerEnter(Collider other)
     {
@@ -87,6 +90,9 @@ public class BallFeedback : MonoBehaviour
         if (other.CompareTag("racket"))
         {
             isRacketGrabbed = true;
+        }
+        if (other.CompareTag("ball")){
+            isBallReleased=true;
         }
     }
     void OnTriggerExit(Collider other)
@@ -96,5 +102,15 @@ public class BallFeedback : MonoBehaviour
         {
             isRacketGrabbed = false;
         }
+    }
+
+    private void OnRelease(SelectExitEventArgs args)//play serve sound when ball released
+    {
+        isBallReleased = true;
+    }
+    private void PlayServeSound()
+    {
+        source.clip = fx_serve;
+        source.Play();
     }
 }
