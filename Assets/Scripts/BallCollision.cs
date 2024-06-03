@@ -57,24 +57,21 @@ public class BallCollision : MonoBehaviour
                 {
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
-                    StartCoroutine(Respawn());
                 }
                 else if (collision.gameObject.CompareTag("out2"))
                 {
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
-                    StartCoroutine(Respawn());
                 }
             }
             if (bounce_num>1){//assume first ball was in and not player hitting their own court
                 if (last_bounce_court==1){
                     scoreManager.AddPointToPlayer2();
                     ResetBounce();
-                    StartCoroutine(Respawn());
                 }else{
                     scoreManager.AddPointToPlayer1();
                     ResetBounce();
-                    StartCoroutine(Respawn());
+                    
                 }
             }
         }
@@ -85,10 +82,11 @@ public class BallCollision : MonoBehaviour
         bounce_num = 0;
         hit=false;
         //sleep(3);
+        StartCoroutine(Respawn());
     }
     
     public IEnumerator Respawn() {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         transform.position = initialPosition;
 
         ballRigidbody.velocity = Vector3.zero;

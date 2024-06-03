@@ -13,10 +13,10 @@ public class MenuController : MonoBehaviour
         scoreboardCanvas.SetActive(false);
     }
 
-    public void StartGame() {
+    /*public void StartGame() {
         startCanvas.SetActive(false);
         scoreboardCanvas.SetActive(true);
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

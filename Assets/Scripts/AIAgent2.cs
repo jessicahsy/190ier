@@ -4,8 +4,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class AIAgent2 : MonoBehaviour
 {
     int bounce_num=0;
-    public float hitForce = 2f;
-    
     int last_bounce_court=0;
     bool hit=false;
 
