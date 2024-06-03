@@ -26363,7 +26363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1734267157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26551,6 +26551,11 @@ MonoBehaviour:
   scoreText: {fileID: 1687080525}
   source: {fileID: 1794957941}
   serve: {fileID: 8300000, guid: d2c067827ec4c4bac985d05c4ed423bc, type: 3}
+  fx_victory: {fileID: 8300000, guid: d65d1a0db5f0e4574856875d6208738a, type: 3}
+  fx_zero: {fileID: 8300000, guid: b03d0edb30220484c81eaa1aaa87c739, type: 3}
+  fx_fifteen: {fileID: 8300000, guid: b4c6b3fb343644d5fa9eae1e2ee12b9c, type: 3}
+  fx_thirty: {fileID: 8300000, guid: f37d00e829faa4236ad745c24435b776, type: 3}
+  fx_forty: {fileID: 8300000, guid: 7c3d4eeaaa7014f72bd073d22e004ddd, type: 3}
 --- !u!65 &1734600397
 BoxCollider:
   m_ObjectHideFlags: 0
