@@ -12,8 +12,9 @@ Our project allows users to practice tennis in VR and aims to improve the hand e
 |Chelsea Stoner |   6451876   |
 
 ## Scene Design
-<img width="1000" alt="Screen Shot 2024-05-17 at 10 28 34 PM" src="https://github.com/jessicahsy/190ier/assets/81593198/0a33e2df-e2a7-4949-97ac-729abb40ddac">
+
 
 ## Locomotion
-- In the XRsimulator, use keys WASD to walk around the court.
+- Press A to press start on the menu screen.
 - On Quest 3, walk to move around on the court
+- Press the grip button to pick up tennis racket and ball.
