@@ -86,10 +86,19 @@ public class BallCollision : MonoBehaviour
     }
     
     public IEnumerator Respawn() {
-        yield return new WaitForSeconds(5);
-        transform.position = initialPosition;
+        if (ScoreManager.isGameOn){
+            yield return new WaitForSeconds(3);
+            transform.position = initialPosition;
 
-        ballRigidbody.velocity = Vector3.zero;
-        ballRigidbody.angularVelocity = Vector3.zero;
+            ballRigidbody.velocity = Vector3.zero;
+            ballRigidbody.angularVelocity = Vector3.zero;
+        }
+    }
+    public void BallRespawn()
+    {
+        bounce_num = 0;
+        hit=false;
+        //sleep(3);
+        StartCoroutine(Respawn());
     }
 }

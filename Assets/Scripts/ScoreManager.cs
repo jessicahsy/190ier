@@ -11,11 +11,14 @@ public class ScoreManager : MonoBehaviour
 
     public AudioSource source;
     public AudioClip serve,fx_victory;//,fx_point;
-    public AudioClip fx_zero, fx_fifteen, fx_thirty, fx_forty;
+    public AudioClip fx_zero, fx_fifteen, fx_thirty, fx_forty, fx_lose, fx_win;
+    public static bool isGameOn = true;
+    public GameObject restart;
 
     void Start()
     {
         UpdateScoreText();
+        isGameOn = true;
     }
 
     void OnCollisionEnter(Collision collision)  {
@@ -35,7 +38,8 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(GameText());
+            isGameOn = false;
+            StartCoroutine(GameText(1));
             // Player 1 wins the game
             Debug.Log("Player 1 wins the game!");
         }
@@ -50,7 +54,8 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(GameText());
+            isGameOn = false;
+            StartCoroutine(GameText(2));
             // Player 2 wins the game
             Debug.Log("Player 2 wins the game!");
         }
@@ -94,19 +99,34 @@ public class ScoreManager : MonoBehaviour
     }
 
 
-   private IEnumerator GameText()
+   private IEnumerator GameText(int player)
     {
         scoreText.text = "GAME";
         source.clip = fx_victory;
         source.Play();
-        yield return new WaitForSeconds(5);
-        ResetScores();
+        yield return new WaitForSeconds(3);
+        restart.SetActive(true);
+        if (player==1){
+            scoreText.text = "YOU WON";
+            source.clip=fx_win;
+            source.Play();
+            yield return new WaitForSeconds(source.clip.length);
+        }else if (player==2){
+            scoreText.text = "YOU LOST";
+            source.clip=fx_lose;
+            source.Play();
+            yield return new WaitForSeconds(source.clip.length);
+        }
+        
+        yield return new WaitForSeconds(source.clip.length);
+        //ResetScores();
     }
 
-    private void ResetScores()
+    public void ResetScores()
     {
         player1Score = 0;
         player2Score = 0;
         UpdateScoreText();
+        isGameOn=true;
     }
 }

@@ -58,4 +58,14 @@ public class menucontroller_scene : MonoBehaviour
 
         SceneManager.LoadScene("Tennis");
     }
+    public IEnumerator clickstart(){
+        FXAudio.clip = fx_click;
+        FXAudio.Play();
+        yield return new WaitForSeconds(FXAudio.clip.length);
+
+        FXAudio.clip = enter_game;
+        FXAudio.Play();
+        yield return new WaitForSeconds(FXAudio.clip.length);
+
+        SceneManager.LoadScene("Tennis");}
 }
